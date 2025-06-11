@@ -1,0 +1,34 @@
+{
+  "name": "catatung",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=20",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "pnpm": ">=9"
+  },
+  "packageManager": "pnpm@9.12.0",
+  "scripts": {
+    "build": "turbo run build",
+    "start:dev": "turbo run start:dev",
+    "start:prod": "turbo run start:prod",
+    "lint": "turbo run lint --",
+    "lint:fix": "turbo run lint:fix --",
+    "test": "turbo run test",
+    "test:e2e": "turbo run test:e2e",
+    "test:cov": "turbo run test:cov",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky",
+    "docker:build": "turbo run docker:build",
+    "docker:run:local": "turbo run docker:run:local"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
+    "husky": "9.1.7",
+    "lint-staged": "16.1.0",
+    "prettier": "3.5.3",
+    "ts-node": "10.9.2",
+    "turbo": "2.5.4"
+  }
+}

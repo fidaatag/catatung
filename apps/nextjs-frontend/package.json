@@ -1,0 +1,51 @@
+{
+  "name": "nextjs-frontend",
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "pnpm": ">=9"
+  },
+  "scripts": {
+    "build": "next build",
+    "start:dev": "next dev",
+    "start:prod": "next start",
+    "lint": "xo",
+    "lint:fix": "xo --fix",
+    "test:e2e": "playwright test",
+    "test:e2e:debug": "playwright test --debug",
+    "docker:build": "cd ../.. && docker build -t nextjs-frontend -f apps/nextjs-frontend/dockerfile .",
+    "docker:start:dev": "docker run -p 3000:3000 --env-file .env nextjs-frontend"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "5.1.1",
+    "@tailwindcss/postcss": "4.1.8",
+    "@tanstack/react-query": "5.80.6",
+    "@tanstack/react-query-devtools": "5.80.6",
+    "dotenv": "16.5.0",
+    "jsdom": "26.1.0",
+    "next": "15.3.3",
+    "primeicons": "7.0.0",
+    "primereact": "10.9.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hook-form": "7.57.0",
+    "uuid": "11.1.0",
+    "zod": "3.25.58",
+    "zustand": "5.0.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.53.0",
+    "@types/jsdom": "21.1.7",
+    "@types/node": "22.15.31",
+    "@types/react": "19.1.7",
+    "@types/react-dom": "19.1.6",
+    "postcss": "8.5.4",
+    "tailwindcss": "4.1.8",
+    "typescript": "5.8.3",
+    "eslint": "9.28.0",
+    "xo": "1.1.0"
+  }
+}
