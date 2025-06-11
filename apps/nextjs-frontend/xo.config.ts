@@ -1,5 +1,8 @@
 import {type FlatXoConfig} from 'xo';
 
+// @ts-expect-error: No types available for eslint-plugin-import
+import importPlugin from 'eslint-plugin-import';
+
 const xoConfig: FlatXoConfig = [
   {
     ignores: ['node_modules', 'postcss.config.mjs', 'commitlint.config.js'],
@@ -34,8 +37,27 @@ const xoConfig: FlatXoConfig = [
       'max-params': 'error',
 
       // Import rules
-      'import-x/extensions': 'error',
-      'n/file-extension-in-import': 'error',
+      // 'import-x/extensions': 'error',
+      // 'n/file-extension-in-import': 'error',
+
+      'import/extensions': [
+        'error',
+        'ignorePackages',
+        {
+          js: 'never',
+          jsx: 'never',
+          ts: 'never',
+          tsx: 'never',
+        },
+      ],
+    },
+    settings: {
+      'import/resolver': {
+        typescript: {},
+      },
+    },
+    plugins: {
+      import: importPlugin,
     },
   },
 ];

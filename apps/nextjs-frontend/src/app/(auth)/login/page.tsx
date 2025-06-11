@@ -1,19 +1,13 @@
-'use client';
+// Component Imports
+import Login from '@views/Login';
 
-import {useState, type JSX} from 'react';
-import {LoginCredentials} from './components/login-credentials/login-credentials.component.tsx';
-import {LoginTwoFactor} from './components/login-two-factor/login-two-factor.component.tsx';
+// Server Action Imports
+import {getServerMode} from '@core/utils/serverHelpers';
 
-export default function Login(): JSX.Element {
-  const [tab, setTab] = useState<'credentials' | '2fa'>('credentials');
+function LoginPage() {
+  const mode = await getServerMode();
 
-  return tab === 'credentials' ? (
-    <LoginCredentials
-      handleLoginCredentialsSuccess={() => {
-        setTab('2fa');
-      }}
-    />
-  ) : (
-    <LoginTwoFactor />
-  );
+  return <Login mode={mode} />;
 }
+
+export default LoginPage;
